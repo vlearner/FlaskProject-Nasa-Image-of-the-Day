@@ -2,23 +2,80 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Flask Application</title>
+    <title>NASA - Image of The day</title>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="icon" href="/static/icon/rocket_launch_FILL0_wght400_GRAD0_opsz48.png">
+    <style>
+        .blog-header {
+            line-height: 1;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .py-3 {
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+        }
+
+        .blog-header-logo {
+            font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+            font-size: 3.25vw;
+            font-weight: bold;
+            color: #343a40 !important;
+        }
+
+        .card {
+            float: none;
+            margin: 10px auto 10px;
+        }
+
+
+    </style>
 </head>
 <body>
+<div class="container-fluid">
+    <header class="blog-header py-3 text-center" style="text-align: center">
+        <div>
+            <div class="blog-header-logo">NASA - Image of the Day</div>
+        </div>
 
-<h2>NASA - Image of the Day</h2>
+    </header>
+    <div class="container">
+        <div class="card text-center" style="width: 50%;">
+            <div class="card-header">
+                Choose a Day
+            </div>
+            <div class="card-body">
+                <form action="imageoftheday" method="post">
+                    <div class="input-group">
+                        <input name="date_pick" value="{{ today }}" class="form-control" type="date">
 
-{{ today }}
+                        <button class="btn btn-outline-success btn-lg " type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-magic"
+                                 viewBox="0 0 16 16">
+                                <path d="M9.5 2.672a.5.5 0 1 0 1 0V.843a.5.5 0 0 0-1 0v1.829Zm4.5.035A.5.5 0 0 0 13.293 2L12 3.293a.5.5 0 1 0 .707.707L14 2.707ZM7.293 4A.5.5 0 1 0 8 3.293L6.707 2A.5.5 0 0 0 6 2.707L7.293 4Zm-.621 2.5a.5.5 0 1 0 0-1H4.843a.5.5 0 1 0 0 1h1.829Zm8.485 0a.5.5 0 1 0 0-1h-1.829a.5.5 0 0 0 0 1h1.829ZM13.293 10A.5.5 0 1 0 14 9.293L12.707 8a.5.5 0 1 0-.707.707L13.293 10ZM9.5 11.157a.5.5 0 0 0 1 0V9.328a.5.5 0 0 0-1 0v1.829Zm1.854-5.097a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L8.646 5.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0l1.293-1.293Zm-3 3a.5.5 0 0 0 0-.706l-.708-.708a.5.5 0 0 0-.707 0L.646 13.94a.5.5 0 0 0 0 .707l.708.708a.5.5 0 0 0 .707 0L8.354 9.06Z"/>
+                            </svg>
+                            Magic
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
-<form action="imageoftheday" method="post">
-    <label> Choose a Day
-        <input name="date_pick" type="date">
-    </label>
-    <button type="submit">Magic</button>
-</form>
+        <img src="{{ nasa_img_url }} "
+             alt="{{ nasa_img_url }}"
+             class="img-fluid"
+             style="max-width: max-content"
+        >
+        {{ nasa_img_url }}
+    </div>
+</div>
 
-<img src="{{ nasa_img_url }} " alt="Image of the Day" style="width: max-content; height: max-content">
-{{ nasa_img_url }}
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+        crossorigin="anonymous"></script>
 </body>
 </html>
