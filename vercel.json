@@ -1,15 +1,17 @@
 {
-    "version": 2,
+  "version": 2,
+  "framework": null,
+  "public": false,
     "builds": [
-        {
-            "src": "./app.py",
-            "use": "@vercel/python"
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/"
-        }
-    ]
+    {
+      "src": "./app.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/app.py"
+    }
+  ]
 }

@@ -8,7 +8,7 @@ base_url = 'https://api.nasa.gov/planetary/apod?'
 api_key = 'api_key=DEMO_KEY&date='
 
 
-@app.route('/', )
+@app.route('/')
 def flask_project():
     return render_template("index.html", today=today)
 
@@ -27,5 +27,5 @@ def image_of_the_day():
                            nasa_img_url=nasa_img_url)
 
 
-if __name__ == '__main__':
+if __name__ == '__app__':
     app.run()
