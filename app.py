@@ -24,8 +24,8 @@ def image_of_the_day():
         img_url = data_response.json()
         nasa_img_url = img_url["url"]
     return render_template("index.html",
-                           nasa_img_url=nasa_img_url)
+                           nasa_img_url=nasa_img_url if 'nasa_img_url' in globals() else None)
 
 
-if __name__ == '__app__':
+if __name__ == '__main__':
     app.run()
