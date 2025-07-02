@@ -6,6 +6,7 @@ app = Flask(__name__)
 today = str(date.today())
 base_url = 'https://api.nasa.gov/planetary/apod?'
 api_key = 'api_key=DEMO_KEY&date='
+nasa_img_url = None  # Initialize global variable
 
 
 @app.route('/')
@@ -27,5 +28,5 @@ def image_of_the_day():
                            nasa_img_url=nasa_img_url)
 
 
-if __name__ == '__app__':
+if __name__ == '__main__':
     app.run()
