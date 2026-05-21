@@ -65,12 +65,18 @@
             </div>
         </div>
 
-        <img src="{{ nasa_img_url }} "
-             alt="{{ nasa_img_url }}"
+        {% if error_msg %}
+        <div class="alert alert-danger mt-3" role="alert">
+            {{ error_msg }}
+        </div>
+        {% endif %}
+        {% if nasa_img_url %}
+        <img src="{{ nasa_img_url }}"
+             alt="NASA Image of the Day"
              class="img-fluid"
              style="max-width: max-content"
         >
-        {{ nasa_img_url }}
+        {% endif %}
     </div>
 </div>
 
